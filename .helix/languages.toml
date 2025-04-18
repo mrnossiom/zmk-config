@@ -1,0 +1,6 @@
+[[language]]
+name = "zmk-keymap"
+scope = "source.c"
+injection-regex = "c"
+file-types = ["keymap"]
+comment-tokens = "//"
