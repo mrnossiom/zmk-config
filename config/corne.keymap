@@ -141,5 +141,18 @@
                                &trans         &trans          &trans           /*|*/ &trans &trans    &trans
             >;
         };
+
+        // add some reserved layers for ZMK Studio
+        reserved_8 {
+            status = "reserved";
+        };
+
+        reserved_9 {
+            status = "reserved";
+        };
+
+        reserved_10 {
+            status = "reserved";
+        };
     };
 };
