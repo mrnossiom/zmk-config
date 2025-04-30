@@ -78,15 +78,6 @@
             >;
         };
 
-//         ergol_base_0 {
-//             bindings = <
-// &trans &kp Q  &kp C           &kp O           &kp P         &kp W      /*|*/ &kp J       &kp M        &kp D             &trans/*todo:deadkey*/ &kp Y &trans 
-// &trans &kp A  &hml LEFT_ALT S &hml LEFT_GUI E &hml LCTRL N  &kp F      /*|*/ &kp L       &hmr RCTRL R &hmr RIGHT_GUI T  &hmr RIGHT_ALT I       &kp U &trans 
-// &trans &kp Z  &kp X           &kp QUESTION    &kp V         &kp B      /*|*/ &kp COLON   &kp H        &kp G             &kp SEMI               &kp K &trans 
-//                               &trans          &mt LSHFT DEL &lt 4 BSPC /*|*/ &lt 4 SPACE &lt 1 ENTER  &trans
-//             >;
-//         };
-
         symbols_1 {
             bindings = <
 &trans &kp LS(NUMBER_6)     &kp RA(W) &kp RA(E) &kp LS(N4)            &kp LS(N5) /*|*/ &kp LS(N0)        &kp AMPS      &kp STAR        &kp SQT    &kp GRAVE            &trans
