@@ -7,12 +7,12 @@
 #include <dt-bindings/zmk/pointing.h>
 
 #define LYR_BASE 0
-#define LYR_SYMBOLS 1
-#define LYR_NUMBERS 2
-#define LYR_NAVIGATION 3
+#define LYR_SYM 1
+#define LYR_NUM 2
+#define LYR_NAV 3
 #define LYR_NUM_NAV 4
-#define LYR_FUNCTION 5
-#define LYR_BLUETOOTH 6
+#define LYR_FUNC 5
+#define LYR_BT 6
 #define LYR_MOUSE 7
 
 / {
@@ -20,7 +20,7 @@
         hml: hml {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -37,7 +37,7 @@
         hmr: hmr {
             compatible = "zmk,behavior-hold-tap";
             flavor = "balanced";
-            tapping-term-ms = <280>;
+            tapping-term-ms = <200>;
             quick-tap-ms = <175>;
             #binding-cells = <2>;
             bindings = <&kp>, <&kp>;
@@ -56,7 +56,7 @@
         compatible = "zmk,combos";
 
         bluetooth {
-            bindings = <&mo LYR_BLUETOOTH>;
+            bindings = <&mo LYR_BT>;
             key-positions = <23 12>;
         };
 
@@ -71,73 +71,76 @@
 
         base_0 {
             bindings = <
-&none &kp Q &kp W           &kp E           &kp R         &kp T                /*|*/ &kp Y                    &kp U                 &kp I            &kp O            &kp P     &none
-&none &kp A &hml LEFT_ALT S &hml LEFT_GUI D &hml LCTRL F  &kp G                /*|*/ &kp H                    &hmr RCTRL J          &hmr RIGHT_GUI K &hmr RIGHT_ALT L &kp SEMI  &none
-&none &kp Z &kp X           &kp C           &kp V         &kp B                /*|*/ &kp N                    &kp M                 &kp COMMA        &kp DOT          &kp SLASH &none
-                            &trans          &mt LSHFT DEL &lt LYR_NUMBERS BSPC /*|*/ &lt LYR_NAVIGATION SPACE &lt LYR_SYMBOLS ENTER &trans
+&none &kp Q &kp W       &kp E       &kp R         &kp T             /*|*/ &kp Y             &kp U             &kp I       &kp O       &kp P     &none
+&none &kp A &hml LALT S &hml LGUI D &hml LCTRL F  &kp G             /*|*/ &kp H             &hmr RCTRL J      &hmr RGUI K &hmr RALT L &kp SEMI  &none
+&none &kp Z &kp X       &kp C       &kp V         &kp B             /*|*/ &kp N             &kp M             &kp COMMA   &kp DOT     &kp SLASH &none
+                        &none       &mt LSHFT DEL &lt LYR_NAV SPACE /*|*/ &lt LYR_NAV SPACE &lt LYR_SYM ENTER &none
             >;
         };
 
         symbols_1 {
             bindings = <
-&trans &kp LS(NUMBER_6)     &kp RA(W) &kp RA(E) &kp LS(N4)            &kp LS(N5) /*|*/ &kp LS(N0)        &kp AMPS      &kp STAR       &kp SQT   &kp GRAVE            &trans
-&trans &kp LS(LEFT_BRACKET) &kp RA(S) &kp RA(D) &kp LS(RIGHT_BRACKET) &kp EQUAL  /*|*/ &kp BSLH          &kp LS(EQUAL) &kp C          &kp MINUS &kp LS(SINGLE_QUOTE) &trans
-&trans &kp TILDE            &kp LBKT  &kp RBKT  &kp LS(MINUS)         &kp LS(N9) /*|*/ &kp LS(BACKSLASH) &kp LS(O)     &kp LS(PERIOD) &kp LS(N) &kp LS(C)            &trans
-                                      &trans    &mt LSHFT ESC         &trans     /*|*/ &trans            &trans        &trans
+&none &kp CARET &kp LT   &kp GT   &kp DOLLAR    &kp PRCT  /*|*/ &kp AT   &kp AMPS &kp STAR  &kp SQT   &kp GRAVE &none
+&none &kp LBRC  &kp LPAR &kp RPAR &kp RBRC      &kp EQUAL /*|*/ &kp BSLH &kp PLUS &kp MINUS &kp SLASH &kp DQT   &none
+&none &kp TILDE &kp LBKT &kp RBKT &kp UNDER     &kp HASH  /*|*/ &kp PIPE &kp EXCL &kp SEMI  &kp COLON &kp QMARK &none
+                         &none    &mt LSHFT ESC &none     /*|*/ &none    &none    &none
             >;
         };
 
         numbers_2 {
             bindings = <
-&trans &kp EXCL &kp AT &kp HASH &kp DOLLAR    &kp PRCNT /*|*/ &kp CARET &kp AMPS &kp STAR &kp LPAR &kp RPAR &trans
-&trans &kp N1   &kp N2 &kp N3   &kp N4        &kp N5    /*|*/ &kp N6    &kp N7   &kp N8   &kp N9   &kp N0   &trans
-&trans &none    &none  &none    &none         &none     /*|*/ &none     &none    &none    &none    &none    &trans
-                       &trans   &mt LSHFT DEL &trans    /*|*/ &kp ESC   &trans   &trans
+&none &none  &none  &none  &none         &none  /*|*/ &none   &none  &none  &none  &none  &none
+&none &kp N1 &kp N2 &kp N3 &kp N4        &kp N5 /*|*/ &kp N6  &kp N7 &kp N8 &kp N9 &kp N0 &none
+&none &none  &none  &none  &none         &none  /*|*/ &none   &none  &none  &none  &none  &none
+                    &none  &mt LSHFT DEL &none  /*|*/ &kp ESC &none  &none
             >;
         };
 
         navigation_3 {
             bindings = <
-&trans &tog LYR_NUM_NAV &kp LC(W) &kp K_BACK  &kp K_FORWARD &none  /*|*/ &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END   &none             &trans 
-&trans &kp LC(A)        &kp LC(S) &kp LS(TAB) &kp TAB       &none  /*|*/ &kp LEFT &kp DOWN      &kp UP      &kp RIGHT &tog LYR_FUNCTION &trans
-&trans &kp LC(Z)        &kp LC(X) &kp LC(C)   &kp LC(V)     &none  /*|*/ &none    &none         &none       &none     &none             &trans
-                                  &trans      &mt LSHFT DEL &trans /*|*/ &trans   &trans        &trans
+&none &tog LYR_NUM_NAV &kp LC(W) &kp K_BACK  &kp K_FORWARD &none /*|*/ &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END   &none         &none
+&none &kp LC(A)        &kp LC(S) &kp LS(TAB) &kp TAB       &none /*|*/ &kp LEFT &kp DOWN      &kp UP      &kp RIGHT &tog LYR_FUNC &none
+&none &kp LC(Z)        &kp LC(X) &kp LC(C)   &kp LC(V)     &none /*|*/ &none    &none         &none       &none     &none         &none
+                                 &none       &mt LSHFT DEL &none /*|*/ &none    &none         &none
             >;
         };
 
-        num_nav_4 { // toggled
+        // toggled
+        num_nav_4 {
             bindings = <
-&trans &kp TAB   &kp HOME       &kp UP_ARROW &kp END     &kp PAGE_UP      /*|*/ &kp MINUS &kp N7           &kp N8 &kp N9 &kp ESC &trans
-&trans &kp LC(A) &kp LEFT       &kp DOWN     &kp RIGHT   &kp DOWN         /*|*/ &kp C     &kp N4           &kp N5 &kp N6 &kp N0  &trans
-&trans &kp LC(Z) &kp LS(DELETE) &kp LC(INS)  &kp LS(INS) &kp LS(TAB)      /*|*/ &kp DOT   &kp N1           &kp N2 &kp N3 &kp DOT &trans
-                                &trans       &trans      &tog LYR_NUM_NAV /*|*/ &kp SPACE &tog LYR_NUM_NAV &trans
+&none &kp TAB   &kp HOME       &kp UP_ARROW &kp END     &kp PAGE_UP      /*|*/ &kp MINUS &kp N7           &kp N8 &kp N9 &kp ESC &none
+&none &kp LC(A) &kp LEFT       &kp DOWN     &kp RIGHT   &kp DOWN         /*|*/ &kp C     &kp N4           &kp N5 &kp N6 &kp N0  &none
+&none &kp LC(Z) &kp LS(DELETE) &kp LC(INS)  &kp LS(INS) &kp LS(TAB)      /*|*/ &kp DOT   &kp N1           &kp N2 &kp N3 &kp DOT &none
+                               &none        &none       &tog LYR_NUM_NAV /*|*/ &kp SPACE &tog LYR_NUM_NAV &none
             >;
         };
 
-        function_pad_5 { // toggled
+        // toggled
+        function_pad_5 {
             bindings = <
-&trans &kp F1 &kp F2  &kp F3  &kp F4  &kp C_VOL_UP /*|*/ &kp C_BRI_UP &trans         &trans     &trans     &trans &trans 
-&trans &kp F5 &kp F6  &kp F7  &kp F8  &kp C_VOL_DN /*|*/ &kp C_BRI_DN &trans         &trans     &trans     &trans &trans 
-&trans &kp F9 &kp F10 &kp F11 &kp F12 &kp C_MUTE   /*|*/ &trans       &kp C_PREVIOUS &kp C_PLAY &kp C_NEXT &trans &trans 
-                      &trans  &trans  &trans       /*|*/ &trans       &trans         &trans
+&none &kp F1 &kp F2  &kp F3  &kp F4  &kp C_VOL_UP /*|*/ &kp C_BRI_UP &none          &none      &none      &none &none
+&none &kp F5 &kp F6  &kp F7  &kp F8  &kp C_VOL_DN /*|*/ &kp C_BRI_DN &none          &none      &none      &none &none
+&none &kp F9 &kp F10 &kp F11 &kp F12 &kp C_MUTE   /*|*/ &none        &kp C_PREVIOUS &kp C_PLAY &kp C_NEXT &none &none
+                     &none   &none   &none        /*|*/ &none        &none          &none
             >;
         };
 
-        bluetooth_6 { // combo
+        bluetooth_6 {
             bindings = <
-&trans &trans &trans        &trans        &trans         &trans     /*|*/ &trans &bt BT_CLR   &trans       &trans       &trans &trans 
-&trans &trans &none         &bt BT_DISC 4 &bt BT_DISC 3  &trans     /*|*/ &trans &bt BT_SEL 3 &bt BT_SEL 4 &trans       &trans &trans 
-&trans &trans &bt BT_DISC 2 &bt BT_DISC 1 &bt BT_DISC 0  &trans     /*|*/ &trans &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &trans &trans 
-                            &trans        &bt BT_CLR_ALL &bt BT_CLR /*|*/ &trans &trans       &trans
+&none &none        &none        &none        &none          &none        /*|*/ &none &none &none &none &none &none
+&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 /*|*/ &none &none &none &none &none &none
+&none &none        &none        &none        &none          &none        /*|*/ &none &none &none &none &none &none
+                                &none        &bt BT_CLR_ALL &bt BT_CLR   /*|*/ &none &none &none
             >;
         };
 
-        mouse_7 { // combo
+        // toggled
+        mouse_7 {
             bindings = <
-&trans &trans &msc MOVE_X(-10) &mmv MOVE_UP   &msc MOVE_X(10) &msc MOVE_Y(10)  /*|*/ &trans &trans    &trans    &trans &trans &trans 
-&trans &trans &mmv MOVE_LEFT   &mmv MOVE_DOWN &mmv MOVE_RIGHT &msc MOVE_Y(-10) /*|*/ &trans &mkp LCLK &mkp RCLK &trans &trans &trans 
-&trans &trans &trans           &trans         &trans          &trans           /*|*/ &trans &trans    &trans    &trans &trans &trans 
-                               &trans         &trans          &trans           /*|*/ &trans &trans    &trans
+&none &none &none &none     &none     &none /*|*/ &none            &none            &none           &none           &none &none
+&none &none &none &mkp LCLK &mkp RCLK &none /*|*/ &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP    &mmv MOVE_RIGHT &none &none
+&none &none &none &none     &none     &none /*|*/ &msc MOVE_X(-10) &msc MOVE_Y(-10) &msc MOVE_Y(10) &msc MOVE_X(10) &none &none
+                  &none     &none     &none /*|*/ &none            &none            &none
             >;
         };
     };
