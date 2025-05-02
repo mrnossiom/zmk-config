@@ -12,8 +12,8 @@
 #define LYR_NAV 3
 #define LYR_NUM_NAV 4
 #define LYR_FUNC 5
-#define LYR_BT 6
-#define LYR_MOUSE 7
+#define LYR_MOUSE 6
+#define LYR_BT 7
 
 / {
     behaviors {
@@ -55,13 +55,13 @@
     combos {
         compatible = "zmk,combos";
 
-        bluetooth {
-            bindings = <&mo LYR_BT>;
+        mouse {
+            bindings = <&mo LYR_MOUSE>;
             key-positions = <23 12>;
         };
 
-        mouse {
-            bindings = <&tog LYR_MOUSE>;
+        bluetooth {
+            bindings = <&mo LYR_BT>;
             key-positions = <24 35>;
         };
     };
@@ -80,67 +80,67 @@
 
         symbols_1 {
             bindings = <
-&none &kp CARET &kp LT   &kp GT   &kp DOLLAR    &kp PRCT  /*|*/ &kp AT   &kp AMPS &kp STAR  &kp SQT   &kp GRAVE &none
-&none &kp LBRC  &kp LPAR &kp RPAR &kp RBRC      &kp EQUAL /*|*/ &kp BSLH &kp PLUS &kp MINUS &kp SLASH &kp DQT   &none
-&none &kp TILDE &kp LBKT &kp RBKT &kp UNDER     &kp HASH  /*|*/ &kp PIPE &kp EXCL &kp SEMI  &kp COLON &kp QMARK &none
-                         &none    &mt LSHFT ESC &none     /*|*/ &none    &none    &none
+&none &kp CARET &kp LT   &kp GT   &kp DOLLAR  &kp PRCT  /*|*/ &kp AT   &kp AMPS &kp STAR  &kp SQT   &kp GRAVE &none
+&none &kp LBRC  &kp LPAR &kp RPAR &kp RBRC    &kp EQUAL /*|*/ &kp BSLH &kp PLUS &kp MINUS &kp SLASH &kp DQT   &none
+&none &kp TILDE &kp LBKT &kp RBKT &kp UNDER   &kp HASH  /*|*/ &kp PIPE &kp EXCL &kp SEMI  &kp COLON &kp QMARK &none
+                         &none    &mo LYR_NUM &none     /*|*/ &none    &none    &none
             >;
         };
 
         numbers_2 {
             bindings = <
-&none &none  &none  &none  &none         &none  /*|*/ &none   &none  &none  &none  &none  &none
-&none &kp N1 &kp N2 &kp N3 &kp N4        &kp N5 /*|*/ &kp N6  &kp N7 &kp N8 &kp N9 &kp N0 &none
-&none &none  &none  &none  &none         &none  /*|*/ &none   &none  &none  &none  &none  &none
-                    &none  &mt LSHFT DEL &none  /*|*/ &kp ESC &none  &none
+&none &none  &none  &none  &none  &none     /*|*/ &none     &none  &none  &none  &none  &none
+&none &kp N1 &kp N2 &kp N3 &kp N4 &kp N5    /*|*/ &kp N6    &kp N7 &kp N8 &kp N9 &kp N0 &none
+&none &none  &none  &none  &none  &none     /*|*/ &none     &none  &none  &none  &none  &none
+                    &none  &none  &kp SPACE /*|*/ &kp SPACE &none  &none
             >;
         };
 
         navigation_3 {
             bindings = <
-&none &tog LYR_NUM_NAV &kp LC(W) &kp K_BACK  &kp K_FORWARD &none /*|*/ &kp HOME &kp PAGE_DOWN &kp PAGE_UP &kp END   &none         &none
-&none &kp LC(A)        &kp LC(S) &kp LS(TAB) &kp TAB       &none /*|*/ &kp LEFT &kp DOWN      &kp UP      &kp RIGHT &tog LYR_FUNC &none
-&none &kp LC(Z)        &kp LC(X) &kp LC(C)   &kp LC(V)     &none /*|*/ &none    &none         &none       &none     &none         &none
-                                 &none       &mt LSHFT DEL &none /*|*/ &none    &none         &none
+&none &tog LYR_NUM_NAV &kp LC(W) &kp K_BACK  &kp K_FORWARD &none /*|*/ &kp HOME         &kp PAGE_DOWN    &kp PAGE_UP     &kp END         &none         &none
+&none &kp LC(A)        &kp LC(S) &kp LS(TAB) &kp TAB       &none /*|*/ &kp LEFT         &kp DOWN         &kp UP          &kp RIGHT       &tog LYR_FUNC &none
+&none &kp LC(Z)        &kp LC(X) &kp LC(C)   &kp LC(V)     &none /*|*/ &msc MOVE_X(-10) &msc MOVE_Y(-10) &msc MOVE_Y(10) &msc MOVE_X(10) &none         &none
+                                 &none       &kp DEL       &none /*|*/ &none            &kp ESC          &none
             >;
         };
 
         // toggled
         num_nav_4 {
             bindings = <
-&none &kp TAB   &kp HOME       &kp UP_ARROW &kp END     &kp PAGE_UP      /*|*/ &kp MINUS &kp N7           &kp N8 &kp N9 &kp ESC &none
-&none &kp LC(A) &kp LEFT       &kp DOWN     &kp RIGHT   &kp DOWN         /*|*/ &kp C     &kp N4           &kp N5 &kp N6 &kp N0  &none
-&none &kp LC(Z) &kp LS(DELETE) &kp LC(INS)  &kp LS(INS) &kp LS(TAB)      /*|*/ &kp DOT   &kp N1           &kp N2 &kp N3 &kp DOT &none
-                               &none        &none       &tog LYR_NUM_NAV /*|*/ &kp SPACE &tog LYR_NUM_NAV &none
+&none &kp TAB   &kp HOME       &kp UP_ARROW &kp END          &kp PAGE_UP /*|*/ &kp MINUS &kp N7           &kp N8 &kp N9 &kp ESC &none
+&none &kp LC(A) &kp LEFT       &kp DOWN     &kp RIGHT        &kp DOWN    /*|*/ &kp C     &kp N4           &kp N5 &kp N6 &kp N0  &none
+&none &kp LC(Z) &kp LS(DELETE) &kp LC(INS)  &kp LS(INS)      &kp LS(TAB) /*|*/ &kp DOT   &kp N1           &kp N2 &kp N3 &kp DOT &none
+                               &none        &tog LYR_NUM_NAV &kp SPACE   /*|*/ &kp SPACE &tog LYR_NUM_NAV &none
             >;
         };
 
         // toggled
         function_pad_5 {
             bindings = <
-&none &kp F1 &kp F2  &kp F3  &kp F4  &kp C_VOL_UP /*|*/ &kp C_BRI_UP &none          &none      &none      &none &none
-&none &kp F5 &kp F6  &kp F7  &kp F8  &kp C_VOL_DN /*|*/ &kp C_BRI_DN &none          &none      &none      &none &none
-&none &kp F9 &kp F10 &kp F11 &kp F12 &kp C_MUTE   /*|*/ &none        &kp C_PREVIOUS &kp C_PLAY &kp C_NEXT &none &none
-                     &none   &none   &none        /*|*/ &none        &none          &none
-            >;
-        };
-
-        bluetooth_6 {
-            bindings = <
-&none &none        &none        &none        &none          &none        /*|*/ &none &none &none &none &none &none
-&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 /*|*/ &none &none &none &none &none &none
-&none &none        &none        &none        &none          &none        /*|*/ &none &none &none &none &none &none
-                                &none        &bt BT_CLR_ALL &bt BT_CLR   /*|*/ &none &none &none
+&none &kp F1 &kp F2  &kp F3  &kp F4           &kp C_VOL_UP /*|*/ &kp C_BRI_UP &none            &none      &none      &none &none
+&none &kp F5 &kp F6  &kp F7  &kp F8           &kp C_VOL_DN /*|*/ &kp C_BRI_DN &none            &none      &none      &none &none
+&none &kp F9 &kp F10 &kp F11 &kp F12          &kp C_MUTE   /*|*/ &none        &kp C_PREVIOUS   &kp C_PLAY &kp C_NEXT &none &none
+                     &none   &tog LYR_NUM_NAV &none        /*|*/ &none        &tog LYR_NUM_NAV &none
             >;
         };
 
         // toggled
-        mouse_7 {
+        mouse_6 {
             bindings = <
-&none &none &none &none     &none     &none /*|*/ &none            &none            &none           &none           &none &none
-&none &none &none &mkp LCLK &mkp RCLK &none /*|*/ &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP    &mmv MOVE_RIGHT &none &none
-&none &none &none &none     &none     &none /*|*/ &msc MOVE_X(-10) &msc MOVE_Y(-10) &msc MOVE_Y(10) &msc MOVE_X(10) &none &none
-                  &none     &none     &none /*|*/ &none            &none            &none
+&none &none &none &none     &none          &none /*|*/ &none            &none            &none           &none           &none &none
+&none &none &none &mkp LCLK &mkp RCLK      &none /*|*/ &mmv MOVE_LEFT   &mmv MOVE_DOWN   &mmv MOVE_UP    &mmv MOVE_RIGHT &none &none
+&none &none &none &none     &none          &none /*|*/ &msc MOVE_X(-10) &msc MOVE_Y(-10) &msc MOVE_Y(10) &msc MOVE_X(10) &none &none
+                  &none     &tog LYR_MOUSE &none /*|*/ &none            &tog LYR_MOUSE   &none
+            >;
+        };
+
+        bluetooth_7 {
+            bindings = <
+&none &none        &none        &none        &none        &none        /*|*/ &none          &none      &none &none &none &none
+&none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 /*|*/ &bt BT_CLR_ALL &bt BT_CLR &none &none &none &none
+&none &none        &none        &none        &none        &none        /*|*/ &none          &none      &none &none &none &none
+                                &none        &none        &none        /*|*/ &none          &none      &none
             >;
         };
     };
