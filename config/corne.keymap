@@ -72,10 +72,10 @@
 // CAPS is useful on apple devices, e.g. on iphone it can be rebinded as the "globe key"
         base_0 {
             bindings = <
-&none    &kp Q        &kp W       &kp E       &kp R            &kp T             /*|*/ &kp Y             &kp U             &kp I       &kp O       &kp P           &none
-&kp ESC  &hml LSHFT A &hml LALT S &hml LGUI D &hml LCTRL F     &kp G             /*|*/ &kp H             &hmr RCTRL J      &hmr RGUI K &hmr RALT L &hmr RSHFT SEMI &none
-&kp CAPS &kp Z        &kp X       &kp C       &kp V            &kp B             /*|*/ &kp N             &kp M             &kp COMMA   &kp DOT     &kp SLASH       &none
-                                  &none       &lt LYR_NUM BSPC &lt LYR_NAV SPACE /*|*/ &lt LYR_NAV SPACE &lt LYR_SYM ENTER &none
+&none    &kp Q &kp W       &kp E       &kp R          &kp T             /*|*/ &kp Y             &kp U             &kp I       &kp O       &kp P     &none
+&kp ESC  &kp A &hml LALT S &hml LGUI D &hml LCTRL F   &kp G             /*|*/ &kp H             &hmr RCTRL J      &hmr RGUI K &hmr RALT L &kp SEMI  &none
+&kp CAPS &kp Z &kp X       &kp C       &kp V          &kp B             /*|*/ &kp N             &kp M             &kp COMMA   &kp DOT     &kp SLASH &none
+                           &mo LYR_NUM &mt LSHFT BSPC &lt LYR_NAV SPACE /*|*/ &lt LYR_NAV SPACE &lt LYR_SYM ENTER &none
             >;
         };
 
